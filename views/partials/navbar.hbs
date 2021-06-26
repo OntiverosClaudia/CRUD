@@ -1,0 +1,35 @@
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+    <a class="navbar-brand" href="#">CRUD</a>
+    <!-- Menu Hamburguesa -->
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#Hamburguesa"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="Hamburguesa">
+        <!-- uwu -->
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link" href="/">Inicio</a>
+            </li>
+            {{#unless loggedIn}}
+            <li class="nav-item">
+                <a class="nav-link" href="/auth/login">Iniciar sesion</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/user/register">Registrarse</a>
+            </li>
+            {{/unless}}
+            {{#if loggedIn}}
+            <li class="nav-item">
+                <a class="nav-link" href="/Insertar">Formulario</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/api/product">Ver producto</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/auth/logout">Salir</a>
+            </li>
+            {{/if}}
+        </ul>
+    </div>
+</nav>

@@ -9,6 +9,11 @@ const router = require('./routers/routes'); // Acceder a nuestras rutas
 
 const app = express();
 
+
+// npm i -S method-override. para manejar PUT y DELETE en form html
+const methodOverride = require('method-override');
+app.use(methodOverride('_method'));
+
 // Body Parser
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());

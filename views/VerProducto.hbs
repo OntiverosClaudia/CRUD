@@ -1,0 +1,42 @@
+<div class="container mt-5 mb-5">
+    <h3 class="pb-0">Productos:</h3>
+    <hr>
+    <table class="table table-stripped table-responsive-md btn-table mt-5 mb-5">
+        <thead>
+            <tr>
+                <th> ID </th>
+                <th class="th-sm"> Nombre </th>
+                <th class="th-sm"> Precio </th>
+                <th class="th-sm"> Imagen </th>
+                <th class="th-sm"> Categoria </th>
+                <th class="th-sm"> Descripcion </th>
+                <th class="th-sm"> Opciones </th>
+                <th class="th-sm"> </th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Reconoce un foreach -->
+            {{#productos}}
+            <tr>
+                <td>{{_id}}</td>
+                <td>{{name}}</td>
+                <td>{{price}}</td>
+                <td>{{picture}}</td>
+                <td>{{category}}</td>
+                <td>{{description}}</td>
+                <td>
+                    <form action="/api/product/{{_id}}" method="GET">
+                        <button type="submit" class="btn btn-info"> Editar </button>
+                    </form>
+                </td>
+                <td>
+                    <form action="/api/product/{{_id}}" method="GET">
+                        <button type="submit" class="btn btn-danger"> Eliminar </button>
+                    </form>
+                </td>
+            </tr>
+            {{/productos}}
+            <!-- Cierra el foreach -->
+        </tbody>
+    </table>
+</div>

@@ -7,15 +7,15 @@ module.exports = (req, res)=>{
     let update = req.body;
     console.log(datoModificar);
     console.log(update);
-    product.findOneAndUpdate(datoModificar, update, (err, productos) =>{
+    product.findByIdAndUpdate(datoModificar, update, (err, productos) =>{
         if(err) return res.status(500).send({
             message: `Error al actualizar el producto ${err}`
         });
         if(!productos) /* Viene vacio */ return res.status(404).send({
             message: 'No existe el producto'
         });
-        res.status(200).send({
-            productos
-        });
+        console.log(req.body); // Confirmar que manda body gg
+        //res.status(200).send({ productos }); Nos muestra la modificacion
+        res.redirect('/api/product'); // Te manda a la tabla de productos
     })
 }

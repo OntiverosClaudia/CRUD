@@ -1,0 +1,49 @@
+<div class="container mt-5 mb-4">
+    <h3>Transacción de registros:</h3>
+    <hr>
+    <form action="/api/product/{{productos._id}}?_method=PUT" method="POST">
+        <input type="hidden" name="_method" value="PUT">
+        <div class="pt-4 pb-4 justify-content-md-center">
+            <div class="form-row pt-4">
+                <div class="col-md-6">
+                    <label for="_Id">ID</label>
+                    <input type="text" class="form-control" disable value="{{productos._id}}" name="Id">
+                </div>
+                <div class="col-md-6">
+                    <label for="Nombre">Nombre</label>
+                    <input type="text" class="form-control" value="{{productos.name}}" name="name">
+                </div>
+            </div>
+            <div class="form-row pt-4">
+                <div class="col-md-6">
+                    <label for="Price">Price</label>
+                    <input type="number" class="form-control" value="{{productos.price}}" name="price">
+                </div>
+                <div class="col-md-6">
+                    <label for="category">Category</label>
+                    <select class="form-control" id="category" name="category">
+                        <option selected>{{productos.category}}</option>
+                        <option>Computers</option>
+                        <option>Phones</option>
+                        <option>Accesories</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-row pt-4 pb-4">
+                <div class="col-md-6">
+                    <label for="description">Description</label>
+                    <input type="text" class="form-control" value="{{productos.description}}" name="description">
+                </div>
+                <div class="col-md-6">
+                    <label for="picture">Picture</label>
+                    <input type="text" class="form-control" value="{{productos.picture}}" name="picture">
+                </div>
+            </div>
+            <p align="center" class="pt-4">
+                <button type="submit" class="btn btn-info mr-5">Modificar</button>
+                <button type="submit" formaction="/api/product/{{productos._id}}?_method=delete" method="POST"
+                    class="btn btn-danger">Eliminar</button>
+            </p>
+        </div>
+    </form>
+</div>
